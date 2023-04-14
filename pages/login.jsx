@@ -28,20 +28,19 @@ const Login = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-   
-   await axios
+
+    await axios
       .post(
         `${process.env.NEXT_PUBLIC_API_PREFIX}/api/v1/admin/login`,
         inputFields
       )
       .then((response) => {
-     
         if (response.status == 200) {
           setCurrentAdmin(response.data.adminData);
           setCookie("authentication", JSON.stringify(response.data.adminData));
           Router.push("/home");
           toast.success("Logged in successfully");
-        } 
+        }
       })
       .catch((error) => {
         console.log(error);
@@ -59,16 +58,16 @@ const Login = () => {
           >
             {/* Login */}
             <div>
-              <h1 className="font-semibold text-2xl mb-2">भैरवनाथ मंदिर संवर्धन</h1>
-              <p className="text-xs text-slate-600 mb-6">
-              प्रशासक लॉगिन
-              </p>
+              <h1 className="font-semibold text-2xl mb-2">
+                भैरवनाथ मंदिर संवर्धन
+              </h1>
+              <p className="text-xs text-slate-600 mb-6">प्रशासक लॉगिन</p>
             </div>
 
             {/* Email address */}
             <div className="flex flex-col">
               <label htmlFor="email" className="input-label">
-              आपला ई - मेल
+                आपला ई - मेल
               </label>
               <input
                 type="email"
@@ -84,7 +83,7 @@ const Login = () => {
             {/* Password */}
             <div className="flex flex-col">
               <label htmlFor="password" className="input-label">
-              "तुमचा पासवर्ड
+                तुमचा पासवर्ड
               </label>
               <input
                 type="password"

@@ -11,9 +11,8 @@ const ShowList = () => {
   const [ListData, setListData] = useState([]);
   const [search, setSearch] = useState("");
 
-  const RefreshData = async () => {
-    setLoading(true);
-    await axios
+  useEffect(() => {
+    axios
       .get(
         "https://bhairavnath-madir-backend.onrender.com/api/v1/pavti/getAll",
         {
@@ -29,11 +28,6 @@ const ShowList = () => {
       .catch((err) => {
         console.log(err);
       });
-    setLoading(false);
-  };
-
-  useEffect(() => {
-    RefreshData();
   }, []);
   return (
     <React.Fragment>

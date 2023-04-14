@@ -4,12 +4,14 @@ import { AdminContext } from "../../context/Admin.context";
 import Admin from "../../Layout/Admin";
 import React from "react";
 import { AiOutlineRightCircle } from "react-icons/ai";
+import { useRouter } from "next/router";
 
 const ShowList = () => {
   const { currentAdmin } = useContext(AdminContext);
   const [loading, setLoading] = useState(false);
   const [ListData, setListData] = useState([]);
   const [search, setSearch] = useState("");
+  const router = useRouter();
 
   useEffect(() => {
     axios
@@ -54,6 +56,7 @@ const ShowList = () => {
                   </td>
                   <td className="border border-slate-600 w-[10%]">
                     <AiOutlineRightCircle
+                      onClick={() => router.push(`/show-list/${list._id}`)}
                       className="mx-auto cursor-pointer hover:text-blue-300"
                       size={30}
                     />

@@ -14,7 +14,7 @@ const ID = () => {
   const getData = async () => {
     await axios
       .get(
-        `https://bhairavnath-madir-backend.onrender.com/api/v1/pavti/getPavti/${id}`,
+        `${process.env.NEXT_PUBLIC_API_PREFIX}/api/v1/pavti/getPavti/${id}`,
         {
           headers: {
             Authorization: `Bearer ${currentAdmin.accessToken}`,

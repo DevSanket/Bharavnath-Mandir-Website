@@ -17,9 +17,9 @@ const Header = () => {
         <nav className="tablet:py-5 tablet:px-0 sm:p-4 border-b border-b-slate-300">
           <div className="tablet:container flex items-center justify-between mx-auto">
             {/* Logo */}
-            <div className="flex items-center justify-between w-full">
+            <div className="flex items-center justify-between w-full font-medium">
               <Link href={"/"}>
-                <p>भैरवनाथ मंदिर संवर्धन</p>
+                <p className="md:text-xl sm:text-sm">भैरवनाथ मंदिर संवर्धन</p>
               </Link>
               <div className="flex">
                 <button

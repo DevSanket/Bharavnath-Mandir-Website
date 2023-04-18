@@ -28,6 +28,10 @@
 .btn-md {
   @apply px-5 py-3 border rounded-md text-sm outline-ascent border-ascent bg-ascent font-medium text-white relative  active:ring-2 ring-offset-2 hover:bg-ascent-dark active:bg-ascent-dark;
 }
+
+.btn-md-delete{
+  @apply px-5 py-3 border rounded-md text-sm outline-ascent border-red-400 bg-red-400 font-medium text-white relative  active:ring-2 ring-offset-2 hover:bg-red-500 active:bg-red-600;
+}
 .btn-sm {
   @apply px-4 py-2 border rounded-md text-xs outline-ascent border-ascent bg-ascent font-medium text-white relative  active:ring-2 ring-offset-2 hover:bg-ascent-dark active:bg-ascent-dark;
 }

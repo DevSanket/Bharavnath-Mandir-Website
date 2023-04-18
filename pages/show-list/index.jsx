@@ -34,31 +34,28 @@ const ShowList = () => {
   return (
     <React.Fragment>
       <div className="md:max-w-[800px] sm:w-w-full py-10 mx-auto sm:px-5 space-y-4">
-        <table className="table-auto border-collapse border border-slate-500 w-full">
+        <table className="table-auto  w-full">
           <thead>
-            <tr>
-              <th className="border border-slate-600 w-[30%]">पावती क्रमांक</th>
-              <th className="border border-slate-600 w-[60%]">
-                देणगीदाराचे नाव
-              </th>
-              <th className="border border-slate-600 w-[10%]"></th>
+            <tr className="border-b border-t border-slate-600">
+              <th className="w-[30%]">पावती क्रमांक</th>
+              <th className="w-[60%]">देणगीदाराचे नाव</th>
+              <th className="w-[10%]"></th>
             </tr>
           </thead>
           <tbody>
             {ListData.length > 0 &&
               ListData.map((list, i) => (
-                <tr key={i} className="text-center">
-                  <td className="border border-slate-600 w-[30%]">
-                    {list.pavti_no}
-                  </td>
-                  <td className="border border-slate-600 w-[60%] ">
-                    {list.Dengidar_name}
-                  </td>
-                  <td className="border border-slate-600 w-[10%]">
+                <tr
+                  key={i}
+                  className="border-b border-t border-slate-600 text-center "
+                >
+                  <td className="w-[30%]">{list.pavti_no}</td>
+                  <td className="w-[60%] ">{list.Dengidar_name}</td>
+                  <td className="w-[10%]">
                     <AiOutlineRightCircle
                       onClick={() => router.push(`/show-list/${list._id}`)}
                       className="mx-auto cursor-pointer hover:text-blue-300"
-                      size={30}
+                      size={20}
                     />
                   </td>
                 </tr>

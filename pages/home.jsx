@@ -5,6 +5,7 @@ import AdminCard from "../components/HomeSection/AdminCard";
 import Admin from "../Layout/Admin";
 import CreateCard from "../components/HomeSection/CreateCard";
 import ShowListCard from "../components/HomeSection/ShowListCard";
+import ExpenseCard from "../components/HomeSection/ExpenseCard";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
         <AdminCard />
         <CreateCard />
         <ShowListCard />
+        <ExpenseCard />
       </div>
     </React.Fragment>
   );

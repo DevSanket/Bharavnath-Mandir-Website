@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import { AiOutlineLock, AiOutlineSave } from "react-icons/ai";
 import { AdminContext } from "../context/Admin.context";
+import moment from "moment";
 
 const AddDengi = () => {
   const { currentAdmin } = useContext(AdminContext);
@@ -63,7 +64,7 @@ const AddDengi = () => {
         `${process.env.NEXT_PUBLIC_API_PREFIX}/api/v1/pavti/create`,
         {
           pavti_no: parseInt(pavti_no),
-          pavti_Date: String(pavti_Date),
+          pavti_Date: moment(pavti_Date).format("dddd MMMM Do YYYY, h:mm A"),
           Dengidar_name,
           Dengidar_Address,
           mobile,

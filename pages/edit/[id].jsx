@@ -16,8 +16,8 @@ const Edit = () => {
   const [pavti_Date, Set_pavti_Date] = useState(new Date());
   const [Dengidar_name, setDengidar_name] = useState("");
   const [Dengidar_Address, setDengidar_Address] = useState("");
-  const [mobile, setMobile] = useState("");
-  const [Dengidar_money, setDengidar_money] = useState("");
+  const [mobile, setMobile] = useState(0);
+  const [Dengidar_money, setDengidar_money] = useState(0);
   const [Shera, setShera] = useState("");
   const [loading, setLoading] = useState(false);
   const currentAdmin = JSON.parse(getCookie("authentication"));
@@ -108,7 +108,9 @@ const Edit = () => {
         setDengidar_name(res.data.pavti[0].Dengidar_name);
         setDengidar_Address(res.data.pavti[0].Dengidar_Address);
         setMobile(res.data.pavti[0].mobile);
-        setDengidar_money(res.data.pavti[0].Dengidar_money);
+        setDengidar_money(
+          parseFloat(res.data.pavti[0].Dengidar_money.$numberDecimal)
+        );
         setShera(res.data.pavti[0].Shera);
       })
       .catch((err) => {

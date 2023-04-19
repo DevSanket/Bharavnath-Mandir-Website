@@ -24,6 +24,7 @@ const ID = () => {
         }
       )
       .then((res) => {
+        console.log(res.data.pavti[0]);
         setDengidar(res.data.pavti[0]);
       })
       .catch((err) => {
@@ -66,7 +67,10 @@ const ID = () => {
               <p>देणगीदाराचे नाव : {dengidar.Dengidar_name}</p>
               <p>देणगीदाराचा पत्ता : {dengidar.Dengidar_Address}</p>
               <p>देणगीदाराचा फोन नंबर : {dengidar.mobile}</p>
-              <p>देणगीदाराने दिलेली रक्कम : {dengidar.Dengidar_money} रुपये</p>
+              <p>
+                देणगीदाराने दिलेली रक्कम :{" "}
+                {dengidar.Dengidar_money.$numberDecimal} रुपये
+              </p>
               <p>शेरा : {dengidar.Shera}</p>
             </div>
             <div className="flex md:flex-row sm:flex-col md:space-x-5 sm:space-x-0 md:space-y-0 sm:space-y-5">

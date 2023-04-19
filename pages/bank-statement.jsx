@@ -1,17 +1,95 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { AiOutlineSave } from "react-icons/ai";
 import Admin from "../Layout/Admin";
+import { AdminContext } from "../context/Admin.context";
+import BankMoneyCard from "../components/BankMoneyCard/Index";
+import moment from "moment";
 
 const BankStatement = () => {
   const [money, setMoney] = useState(0.0);
   const [date, setDate] = useState(new Date());
   const [loading, setLoading] = useState(false);
+  const [bankMoney, setBankMoney] = useState([]);
+  const { currentAdmin } = useContext(AdminContext);
+  const [limit, setLimit] = useState(2);
 
-  const SaveData = () => {};
+  const IncreaseLimit = () => {
+    setLimit(limit + 5);
+  };
+
+  const descreseLimit = () => {
+    setLimit(2);
+  };
+
+  const getData = async () => {
+    await axios
+      .get(`${process.env.NEXT_PUBLIC_API_PREFIX}/api/v1/pavti/bank`, {
+        headers: {
+          Authorization: `Bearer ${currentAdmin.accessToken}`,
+        },
+      })
+      .then((res) => {
+        setBankMoney(res.data.data.reverse());
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error("Failed to fetch");
+      });
+  };
+
+  const deleteData = async (id) => {
+    await axios
+      .delete(`${process.env.NEXT_PUBLIC_API_PREFIX}/api/v1/pavti/bank/${id}`, {
+        headers: {
+          Authorization: `Bearer ${currentAdmin.accessToken}`,
+        },
+      })
+      .then((res) => {
+        toast.success(" डिलीट केली");
+        getData();
+      })
+      .catch((err) => {
+        toast.error("डिलीट केली नाही");
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const SaveData = async () => {
+    setLoading(true);
+    await axios
+      .post(
+        `${process.env.NEXT_PUBLIC_API_PREFIX}/api/v1/pavti/bank/create`,
+        {
+          money,
+          date: moment(date).format("dddd MMMM Do YYYY, h:mm A"),
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${currentAdmin.accessToken}`,
+          },
+        }
+      )
+      .then((res) => {
+        toast.success("महिती जतन झाली");
+        getData();
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error("महिती जतन झाली नाही");
+      });
+    setDate(new Date());
+
+    setMoney(0);
+    setLoading(false);
+  };
 
   return (
     <React.Fragment>
@@ -62,16 +140,15 @@ const BankStatement = () => {
               Save
             </button>
           </div>
-          {/* <div className="mt-5 space-y-3">
-            {expenses.length ? (
-              expenses.slice(0, limit).map((expense, i) => {
+          <div className="mt-5 space-y-3">
+            {bankMoney.length ? (
+              bankMoney.slice(0, limit).map((expense, i) => {
                 return (
-                  <ExpenseCard
+                  <BankMoneyCard
                     key={i}
-                    title={expense.title}
                     date={expense.date}
                     money={expense.money.$numberDecimal}
-                    DeleteExpense={DeleteExpense}
+                    DeleteExpense={deleteData}
                     id={expense._id}
                   />
                 );
@@ -79,7 +156,7 @@ const BankStatement = () => {
             ) : (
               <p>No Transaction Yet!!</p>
             )}
-            {limit < expenses.length ? (
+            {limit < bankMoney.length ? (
               <button onClick={() => IncreaseLimit()} className="btn-md w-full">
                 View more
               </button>
@@ -88,7 +165,7 @@ const BankStatement = () => {
                 View Less
               </button>
             )}
-          </div> */}
+          </div>
         </div>
       </div>
     </React.Fragment>

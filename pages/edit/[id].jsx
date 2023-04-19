@@ -71,7 +71,7 @@ const Edit = () => {
           Dengidar_name,
           Dengidar_Address,
           mobile,
-          Dengidar_money: parseInt(Dengidar_money),
+          Dengidar_money: parseFloat(Dengidar_money),
           Shera,
         },
         {
@@ -91,7 +91,6 @@ const Edit = () => {
     setLoading(false);
   };
 
- 
   const getData = async () => {
     await axios
       .get(

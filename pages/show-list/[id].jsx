@@ -74,14 +74,16 @@ const ID = () => {
               <p>शेरा : {dengidar.Shera}</p>
             </div>
             <div className="flex md:flex-row sm:flex-col md:space-x-5 sm:space-x-0 md:space-y-0 sm:space-y-5">
-              <button type="submit" className="btn-md w-full">
-                <Link href={`/edit/${dengidar._id}`}>
-                  <AiOutlineEdit
-                    size={20}
-                    className="h-4 w-4 opacity-50 absolute mr-auto text-white"
-                  />
-                  Edit
-                </Link>
+              <button
+                onClick={() => router.push(`/edit/${dengidar._id}`)}
+                type="submit"
+                className="btn-md w-full"
+              >
+                <AiOutlineEdit
+                  size={20}
+                  className="h-4 w-4 opacity-50 absolute mr-auto text-white"
+                />
+                Edit
               </button>
               <button
                 type="submit"

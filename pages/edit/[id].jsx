@@ -102,9 +102,9 @@ const Edit = () => {
         }
       )
       .then((res) => {
+        console.log(res.data.pavti[0].pavti_Date);
         setDengidar(res.data.pavti[0]);
         setPavti_no(res.data.pavti[0].pavti_no);
-        Set_pavti_Date(new Date(res.data.pavti[0].pavti_Date));
         setDengidar_name(res.data.pavti[0].Dengidar_name);
         setDengidar_Address(res.data.pavti[0].Dengidar_Address);
         setMobile(res.data.pavti[0].mobile);
@@ -128,7 +128,7 @@ const Edit = () => {
         <div className="shadow bg-white rounded-md p-5">
           <div>
             <p className="text-center md:text-3xl sm:text-xl font-medium mb-5">
-              नवीन देनगीदार
+              अद्यतन देनगीदार
             </p>
             <hr />
           </div>

@@ -216,7 +216,13 @@ const AddDengi = () => {
               Save
             </button>
           </div>
-          <div></div>
+          <div className="text-center my-5">
+            <a
+              href={`sms:+91${mobile};?&body=कृपया आपण आपली पावती या वेबसाईटवर जाऊन पहा https://bhairavnath-dengidar.vercel.app/login`}
+            >
+              Send SMS
+            </a>
+          </div>
         </div>
       </div>
     </React.Fragment>

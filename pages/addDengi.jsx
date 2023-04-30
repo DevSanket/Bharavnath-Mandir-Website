@@ -88,7 +88,6 @@ const AddDengi = () => {
     setDengidar_Address("");
     setDengidar_money("");
     setDengidar_name("");
-    setMobile("");
     setShera("");
     setLoading(false);
   };

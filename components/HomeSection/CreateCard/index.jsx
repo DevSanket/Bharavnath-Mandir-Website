@@ -8,7 +8,7 @@ const CreateCard = () => {
         <div className="bg-white rounded-md shadow w-full h-full flex flex-col justify-center items-center p-5 space-y-5">
           <div className="w-full">
             <p className="text-center md:text-2xl sm:text-xl font-medium mb-5">
-              नवीन देनगीदार
+              नवीन देणगीदार
             </p>
             <hr />
           </div>

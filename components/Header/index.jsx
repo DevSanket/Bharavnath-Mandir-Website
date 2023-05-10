@@ -19,7 +19,9 @@ const Header = () => {
             {/* Logo */}
             <div className="flex items-center justify-between w-full font-medium">
               <Link href={"/"}>
-                <p className="md:text-xl sm:text-sm">भैरवनाथ मंदिर संवर्धन</p>
+                <p className="md:text-xl sm:text-sm">
+                  भैरवनाथ मंदिर संवर्धन समिती शिवथर
+                </p>
               </Link>
               <div className="flex">
                 <button

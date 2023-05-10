@@ -59,7 +59,7 @@ const Login = () => {
             {/* Login */}
             <div>
               <h1 className="font-semibold text-2xl mb-2">
-                भैरवनाथ मंदिर संवर्धन
+                भैरवनाथ मंदिर संवर्धन समिती शिवथर
               </h1>
               <p className="text-xs text-slate-600 mb-6">प्रशासक लॉगिन</p>
             </div>

@@ -98,7 +98,7 @@ const AddDengi = () => {
         <div className="shadow bg-white rounded-md p-5">
           <div>
             <p className="text-center md:text-3xl sm:text-xl font-medium mb-5">
-              नवीन देनगीदार
+              नवीन देणगीदार
             </p>
             <hr />
           </div>
@@ -217,7 +217,7 @@ const AddDengi = () => {
           </div>
           <div className="text-center my-5">
             <a
-              href={`sms:+91${mobile};?&body=कृपया आपण आपली पावती या वेबसाईटवर जाऊन पहा https://bhairavnath-dengidar.vercel.app/login`}
+              href={`sms:+91${mobile};?&body=देणगी मिळाली मंदिर संवर्धन समिती आपली आभारी आहे. कृपया आपण आपली पावती या वेबसाईटवर जाऊन पहा https://bhairavnath-dengidar.vercel.app/login`}
             >
               Send SMS
             </a>
